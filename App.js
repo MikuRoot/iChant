@@ -13,6 +13,7 @@ import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 import {appReducers} from "./app/reducers";
 import rootSaga from "./app/sagas/root";
+import Realm from 'realm';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -23,6 +24,7 @@ sagaMiddleware.run(rootSaga);
 
 
 const App: () => React$Node = () => {
+  Realm.copyBundledRealmFiles();
   return (
     <Provider store={store}>
       <AppContainer/>

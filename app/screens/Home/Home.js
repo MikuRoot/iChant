@@ -13,7 +13,6 @@ import {Colors} from "../../configs/colors";
 import FastImage from "react-native-fast-image";
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import {commonPrayer, dailyPrayer, rosary} from "../../configs/SampleData";
-import {getAllChant, getChant, seedingData} from "../../services/realm";
 import {CardItem} from "../../components/Common/CardItem";
 
 const { width, height } = Dimensions.get('window');
@@ -37,8 +36,6 @@ export default class Home extends React.PureComponent{
       ...this.state,
       isLoading: true
     });
-    this.getData();
-    await getAllChant();
   };
 
   onLoadMore = () => {
@@ -127,7 +124,7 @@ export default class Home extends React.PureComponent{
             fontWeight: '900',
             textAlign: 'center'
           }}>
-            E-Pray
+            iChant
           </Text>
         </View>
 
@@ -195,12 +192,14 @@ export default class Home extends React.PureComponent{
                 }}
                 horizontal={true}
                 initialNumToRender={4}
-                keyExractor={(item, index) => item.name}
+                keyExractor={(item) => item.name}
                 renderItem={({item, index}) => (
-                  <View style={{
-                    marginHorizontal: index === 0 ? 0 : 5,
-                    width: 2/3 * width
-                  }}>
+                  <View key={`${item.name}_no${index}`}
+                        style={{
+                          marginHorizontal: index === 0 ? 0 : 5,
+                          width: 2/3 * width
+                        }}
+                  >
                     <CardItem image={item.image} name={item.name} width={600} height={3/10 * height} key={item.name}/>
                   </View>
                 )}
@@ -226,17 +225,19 @@ export default class Home extends React.PureComponent{
                   marginVertical: 10
                 }}
                 initialNumToRender={10}
-                keyExractor={(item, index) => item.name.toString()}
+                keyExractor={(item) => item.name.toString()}
                 extraData={this.state}
                 ListFooterComponent={this.renderFooter}
                 renderItem={({item, index}) => (
-                  <View style={[styles.cardShadow, {
-                    marginVertical: index === 0 ? 0 : 5,
-                    width: 0.9 * width,
-                    height: 60,
-                    flexDirection: 'row',
-                    backgroundColor: Colors.white,
-                  }]}>
+                  <View key={`${item.name}_no${index}`}
+                        style={[styles.cardShadow, {
+                          marginVertical: index === 0 ? 0 : 5,
+                          width: 0.9 * width,
+                          height: 60,
+                          flexDirection: 'row',
+                          backgroundColor: Colors.white,
+                        }]}
+                  >
 
                     <View style={{
                       height: '100%',

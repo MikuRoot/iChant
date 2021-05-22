@@ -1,11 +1,14 @@
+import { Platform } from 'react-native';
+import * as RNFS from 'react-native-fs';
 import Realm from 'realm';
 import {CHANT_SCHEMA, chantNameSchema, chantSchema} from "../database/allSchemas";
 import {chants} from "../configs/SampleData";
 
 const databaseOptions = {
-  path: 'WePrayApp.realm',
+  path: Platform.OS === 'android' ? RNFS.DocumentDirectoryPath + '/iChantApp.realm' : RNFS.MainBundlePath + '/iChantApp.realm',
   schema: [chantSchema, chantNameSchema],
-  schemaVersion: 0
+  schemaVersion: 0,
+  readOnly: true
 };
 
 // functions
