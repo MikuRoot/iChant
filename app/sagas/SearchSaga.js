@@ -1,4 +1,4 @@
-import { put, takeLatest, call, all } from 'redux-saga/effects'
+import {put, takeLatest, call, all} from 'redux-saga/effects'
 import {connectToNetworkFailed} from "../actions";
 
 // function* functionName() {
@@ -11,7 +11,7 @@ import {connectToNetworkFailed} from "../actions";
 // }
 
 export function* SearchSaga() {
-  // yield all([
-  //   takeLatest(actionName, functionName)
-  // ]);
+	// yield all([
+	//   takeLatest(actionName, functionName)
+	// ]);
 }

@@ -1,108 +1,109 @@
 import {
-  createBottomTabNavigator
+	createBottomTabNavigator
 } from 'react-navigation-tabs'
 import {
-  createStackNavigator
+	createStackNavigator
 } from "react-navigation-stack";
 import {
-  createAppContainer
+	createAppContainer
 } from "react-navigation";
-import SearchContainer from "./containers/Search/SearchContainer";
-import HomeContainer from "./containers/Home/HomeContainer";
-import FavoriteContainer from "./containers/Favorite/FavoriteContainer";
-import SettingContainer from "./containers/Setting/SettingContainer";
+import SearchContainer from "./containers/SearchContainer";
+import HomeContainer from "./containers/HomeContainer";
+import FavoriteContainer from "./containers/FavoriteContainer";
+import SettingContainer from "./containers/SettingContainer";
 import {Colors} from "./configs/colors";
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import React from "react";
-import Detail from "./components/Common/Detail";
+import Detail from "./screens/Detail";
+import DetailContainer from "./containers/DetailContainer";
 
 const GuestTabs = createBottomTabNavigator({
-  Home: {
-    screen: HomeContainer,
-    navigationOptions: {
-      tabBarIcon: ({focused}) => (
-        <MaterialIcon size={focused ? 21 : 20} color={Colors.white} name={'home'}/>
-      )
-    }
-  },
-  Favorite: {
-    screen: FavoriteContainer,
-    navigationOptions: {
-      tabBarIcon: ({focused}) => (
-        <MaterialIcon size={focused ? 21 : 20} color={Colors.white} name={'heart'}/>
-      )
-    }
-  },
-  Search: {
-    screen: SearchContainer,
-    navigationOptions: {
-      tabBarIcon: ({focused}) => (
-        <MaterialIcon size={focused ? 21 : 20} color={Colors.white} name={'magnify'}/>
-      )
-    }
-  },
-  Setting: {
-    screen: SettingContainer,
-    navigationOptions: {
-      tabBarIcon: ({focused}) => (
-        <EvilIcon size={focused ? 21 : 20} color={Colors.white} name={'gear'}/>
-      )
-    }
-  },
+	Home: {
+		screen: HomeContainer,
+		navigationOptions: {
+			tabBarIcon: ({focused}) => (
+				<MaterialIcon size={focused ? 21 : 20} color={Colors.white} name={'home'}/>
+			)
+		}
+	},
+	Favorite: {
+		screen: FavoriteContainer,
+		navigationOptions: {
+			tabBarIcon: ({focused}) => (
+				<MaterialIcon size={focused ? 21 : 20} color={Colors.white} name={'heart'}/>
+			)
+		}
+	},
+	Search: {
+		screen: SearchContainer,
+		navigationOptions: {
+			tabBarIcon: ({focused}) => (
+				<MaterialIcon size={focused ? 21 : 20} color={Colors.white} name={'magnify'}/>
+			)
+		}
+	},
+	Setting: {
+		screen: SettingContainer,
+		navigationOptions: {
+			tabBarIcon: ({focused}) => (
+				<EvilIcon size={focused ? 21 : 20} color={Colors.white} name={'gear'}/>
+			)
+		}
+	},
 }, {
-  initialRouteName: "Home",
-  swipeEnabled: false,
-  tabBarOptions: {
-    activeTintColor: Colors.red,
-    style: {
-      backgroundColor: Colors.dark
-    }
-  }
+	initialRouteName: "Home",
+	swipeEnabled: false,
+	tabBarOptions: {
+		activeTintColor: Colors.red,
+		style: {
+			backgroundColor: Colors.dark
+		}
+	}
 });
 
 const SignedInTabs = createBottomTabNavigator({
-  Home: {
-    screen: HomeContainer
-  },
-  Search: {
-    screen: SearchContainer
-  },
-  Favorite: {
-    screen: FavoriteContainer
-  },
-  Setting: {
-    screen: SettingContainer
-  },
+	Home: {
+		screen: HomeContainer
+	},
+	Search: {
+		screen: SearchContainer
+	},
+	Favorite: {
+		screen: FavoriteContainer
+	},
+	Setting: {
+		screen: SettingContainer
+	},
 }, {
-  initialRouteName: "Home",
-  swipeEnabled: false,
-  tabBarOptions: {
-    activeTintColor: Colors.white,
-    style: {
-      backgroundColor: Colors.dark
-    }
-  }
+	initialRouteName: "Home",
+	swipeEnabled: false,
+	tabBarOptions: {
+		activeTintColor: Colors.white,
+		style: {
+			backgroundColor: Colors.dark
+		}
+	}
 });
 
 const stackNavigatorOptions = {
-  headerMode: "none",
-  cardStyle: {
-    backgroundColor: "white",
-    shadowColor: "transparent"
-  }
+	headerMode: "none",
+	cardStyle: {
+		backgroundColor: "white",
+		shadowColor: "transparent"
+	}
 };
 
 const tabs = createStackNavigator({
-  GuestScreens: {
-    screen: GuestTabs
-  },
-  DetailScreen: {
-    screen: Detail
-  },
-  SignedInScreens: {
-    screen: SignedInTabs
-  }
+	GuestScreens: {
+		screen: GuestTabs
+	},
+	DetailScreen: {
+		screen: DetailContainer
+	},
+	SignedInScreens: {
+		screen: SignedInTabs
+	}
 }, stackNavigatorOptions);
 
 const AppContainer = createAppContainer(tabs);

@@ -5,8 +5,8 @@ import {SearchReducer} from "./SearchReducer";
 import {SettingReducer} from "./SettingReducer";
 
 export const appReducers = combineReducers({
-  HomeReducer: HomeReducer,
-  FavoriteReducer: FavoriteReducer,
-  SearchReducer: SearchReducer,
-  SettingReducer: SettingReducer,
+	HomeReducer: HomeReducer,
+	FavoriteReducer: FavoriteReducer,
+	SearchReducer: SearchReducer,
+	SettingReducer: SettingReducer,
 });

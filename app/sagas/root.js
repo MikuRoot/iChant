@@ -5,10 +5,10 @@ import {SearchSaga} from "./SearchSaga";
 import {SettingSaga} from "./SettingSaga";
 
 export default function* rootSaga() {
-  yield all([
-    fork(FavoriteSaga),
-    fork(HomeSaga),
-    fork(SearchSaga),
-    fork(SettingSaga),
-  ])
+	yield all([
+		fork(FavoriteSaga),
+		fork(HomeSaga),
+		fork(SearchSaga),
+		fork(SettingSaga),
+	])
 }
