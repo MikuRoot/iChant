@@ -61,30 +61,6 @@ const GuestTabs = createBottomTabNavigator({
   }
 });
 
-const SignedInTabs = createBottomTabNavigator({
-  Home: {
-    screen: HomeContainer
-  },
-  Search: {
-    screen: SearchContainer
-  },
-  Favorite: {
-    screen: FavoriteContainer
-  },
-  Setting: {
-    screen: SettingContainer
-  },
-}, {
-  initialRouteName: "Home",
-  swipeEnabled: false,
-  tabBarOptions: {
-    activeTintColor: Colors.white,
-    style: {
-      backgroundColor: Colors.dark
-    }
-  }
-});
-
 const stackNavigatorOptions = {
   headerMode: "none",
   cardStyle: {
@@ -100,9 +76,6 @@ const tabs = createStackNavigator({
   DetailScreen: {
     screen: Detail
   },
-  SignedInScreens: {
-    screen: SignedInTabs
-  }
 }, stackNavigatorOptions);
 
 const AppContainer = createAppContainer(tabs);

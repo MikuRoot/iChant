@@ -37,7 +37,7 @@ export default class Home extends React.PureComponent{
       ...this.state,
       isLoading: true
     });
-    this.getData();
+    await this.getData();
     await getAllChant();
   };
 
@@ -54,8 +54,8 @@ export default class Home extends React.PureComponent{
 
   getData = () => {
     const { page, initialCommonPrayer } = this.state;
-    var index = page - 1;
-    var newData = page === 1 ? initialCommonPrayer : initialCommonPrayer.concat(commonPrayer[index].data);
+    let index = page - 1;
+    let newData = page === 1 ? initialCommonPrayer : initialCommonPrayer.concat(commonPrayer[index].data);
     this.setState({
       ...this.state,
       initialCommonPrayer: newData,
@@ -100,15 +100,15 @@ export default class Home extends React.PureComponent{
     )
   };
 
+  navigateTo = (screen, params) => {
+    this.props.navigation.navigate(`${screen}`, params);
+    return true;
+  }
+
   render() {
     const { initialCommonPrayer } = this.state;
     return (
-      <View style={{
-        display: 'flex',
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
+      <View style={styles.parent}>
         {/*header*/}
         <View style={styles.header}>
           {/*<View style={{*/}
@@ -121,34 +121,18 @@ export default class Home extends React.PureComponent{
           {/*}}>*/}
           {/*  <MaterialIcon name={'arrow-back-ios'} size={20} color={Colors.white}/>*/}
           {/*</View>*/}
-          <Text style={{
-            color: Colors.white,
-            fontSize: 18,
-            fontWeight: '900',
-            textAlign: 'center'
-          }}>
+          <Text style={styles.headerTitle}>
             E-Pray
           </Text>
         </View>
 
         {/*content*/}
-        <View style={{
-          overflow: 'hidden',
-          marginTop: 100,
-          padding: 10
-        }}>
-
+        <View style={styles.body}>
           <ScrollView bounces={false}
                       nestedScrollEnabled={true}>
 
-            <View style={{
-              marginVertical: 10
-            }}>
-              <Text style={{
-                color: Colors.black,
-                fontSize: 22,
-                fontWeight: '500',
-              }}>
+            <View style={styles.sectionView}>
+              <Text style={styles.sectionTitle}>
                 Chuỗi mân côi
               </Text>
               <FlatList
@@ -164,25 +148,17 @@ export default class Home extends React.PureComponent{
                 keyExractor={(item) => item.name}
                 renderItem={({item, index}) => (
                   <View key={`${item.name}_no${index}`}
-                        style={{
+                        style={[styles.cardItem, {
                           marginHorizontal: index === 0 ? 0 : 5,
-                          width: 2/3 * width
-                        }}
-                  >
+                        }]}>
                     <CardItem image={item.image} name={item.name} date={item.date} width={600} height={3/10 * height} key={item.name}/>
                   </View>
                 )}
               />
             </View>
 
-            <View style={{
-              marginVertical: 10
-            }}>
-              <Text style={{
-                color: Colors.black,
-                fontSize: 22,
-                fontWeight: '500',
-              }}>
+            <View style={styles.sectionView}>
+              <Text style={styles.sectionTitle}>
                 Chuỗi kinh phổ biến
               </Text>
               <FlatList
@@ -197,24 +173,18 @@ export default class Home extends React.PureComponent{
                 initialNumToRender={4}
                 keyExractor={(item, index) => item.name}
                 renderItem={({item, index}) => (
-                  <View style={{
-                    marginHorizontal: index === 0 ? 0 : 5,
-                    width: 2/3 * width
-                  }}>
+                    <View key={`${item.name}_no${index}`}
+                          style={[styles.cardItem, {
+                            marginHorizontal: index === 0 ? 0 : 5,
+                          }]}>
                     <CardItem image={item.image} name={item.name} width={600} height={3/10 * height} key={item.name}/>
                   </View>
                 )}
               />
             </View>
 
-            <View style={{
-              marginVertical: 10
-            }}>
-              <Text style={{
-                color: Colors.black,
-                fontSize: 22,
-                fontWeight: '500',
-              }}>
+            <View style={styles.sectionView}>
+              <Text style={styles.sectionTitle}>
                 Kinh nguyện hằng ngày
               </Text>
               <FlatList
@@ -230,54 +200,35 @@ export default class Home extends React.PureComponent{
                 extraData={this.state}
                 ListFooterComponent={this.renderFooter}
                 renderItem={({item, index}) => (
-                  <View style={[styles.cardShadow, {
-                    marginVertical: index === 0 ? 0 : 5,
-                    width: 0.9 * width,
-                    height: 60,
-                    flexDirection: 'row',
-                    backgroundColor: Colors.white,
-                  }]}>
-
-                    <View style={{
-                      height: '100%',
-                      width: 60,
-                      overflow: 'hidden',
-                      borderRadius: 20,
-                      position: 'absolute',
-                      left: 0
-                    }}>
-                      <FastImage source={item.image}
-                                 style={{
-                                   width: '100%',
-                                   height: '100%',
-                                   position: 'absolute',
-                                   top: 0
-                                 }}
-                                 resizeMode={FastImage.resizeMode.stretch}
-                      />
-                    </View>
-                    <View style={{
-                      width: (0.9 * width) - 60,
+                  <TouchableOpacity
+                      onPress={() => {
+                        this.navigateTo('DetailScreen', { name: item.name })
+                      }}
+                  >
+                    <View style={[styles.cardShadow, {
+                      marginVertical: index === 0 ? 0 : 5,
+                      width: 0.9 * width,
                       height: 60,
-                      position: 'absolute',
-                      left: 80,
-                      justifyContent: 'center',
-                      alignItems: 'flex-start'
-                    }}>
+                      flexDirection: 'row',
+                      backgroundColor: Colors.white,
+                    }]}>
 
-                      <Text
-                        numberOfLines={2}
-                        style={{
-                          fontSize: 18,
-                          fontWeight: '600',
-                          width: '90%',
-                          color: Colors.dark
-                        }}
-                      >
-                        {item.name}
-                      </Text>
+                      <View style={styles.smallCardItem}>
+                        <FastImage source={item.image}
+                                   style={styles.smallCardImage}
+                                   resizeMode={FastImage.resizeMode.stretch}
+                        />
+                      </View>
+                      <View style={styles.smallCardTextView}>
+                        <Text
+                            numberOfLines={2}
+                            style={styles.smallCardText}
+                        >
+                          {item.name}
+                        </Text>
+                      </View>
                     </View>
-                  </View>
+                  </TouchableOpacity>
                 )}
               />
             </View>
@@ -289,6 +240,12 @@ export default class Home extends React.PureComponent{
 }
 
 const styles = StyleSheet.create({
+  parent: {
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   header: {
     height: 50,
     width: width,
@@ -299,10 +256,16 @@ const styles = StyleSheet.create({
     top: 50,
     backgroundColor: Colors.darkcyan
   },
+  headertitle: {
+    color: Colors.white,
+    fontSize: 18,
+    fontWeight: '900',
+    textAlign: 'center'
+  },
   body: {
-    padding: 10,
-    position: 'absolute',
-    top: 100
+    overflow: 'hidden',
+    marginTop: 100,
+    padding: 10
   },
   cardShadow: {
     borderRadius: 20,
@@ -312,5 +275,44 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 10,
     elevation: 5
+  },
+  sectionView: {
+    marginVertical: 10
+  },
+  sectionTitle: {
+    color: Colors.black,
+    fontSize: 22,
+    fontWeight: '500',
+  },
+  cardItem: {
+    width: 2/3 * width
+  },
+  smallCardItem: {
+    height: '100%',
+    width: 60,
+    overflow: 'hidden',
+    borderRadius: 20,
+    position: 'absolute',
+    left: 0
+  },
+  smallCardImage: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    top: 0
+  },
+  smallCardTextView: {
+    width: (0.9 * width) - 60,
+    height: 60,
+    position: 'absolute',
+    left: 80,
+    justifyContent: 'center',
+    alignItems: 'flex-start'
+  },
+  smallCardText: {
+    fontSize: 18,
+    fontWeight: '600',
+    width: '90%',
+    color: Colors.dark
   }
 });
