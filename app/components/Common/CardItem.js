@@ -46,13 +46,14 @@ export const CardItem = (props) => {
         height: 1/3 * props.height,
         backgroundColor: Colors.white,
         justifyContent: 'center',
-        alignItems: 'flex-end'
+        alignItems: 'center'
       }}>
 
         <Text style={{
           fontSize: 16,
           fontWeight: '700',
-          color: Colors.dark
+          color: Colors.dark,
+          textAlign: 'center'
         }}>{props.name}</Text>
 
         <Text style={{
