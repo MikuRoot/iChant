@@ -7,11 +7,14 @@ import {
   FlatList,
   ScrollView,
   ActivityIndicator,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView
 } from 'react-native';
 import {Colors} from "../../configs/colors";
+import Images from '../../assets/images';
 import FastImage from "react-native-fast-image";
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {chants} from "../../configs/SampleData";
 
 const { width, height } = Dimensions.get('window');
 
@@ -19,75 +22,187 @@ export default class Detail extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      name: ''
+      name: '',
+      content: '',
+      dateCollection: [],
+      selectedDate: ''
     }
   }
 
   componentDidMount() {
-    const { name } = this.props.navigation.state.params;
-    console.log('name', name)
+    this.initScreen();
   }
 
-  render() {
+  initScreen = () => {
+    const { name } = this.props.navigation.state.params;
+    const dateCollection = ['Ngày thứ nhất', 'Ngày thứ hai', 'Ngày thứ ba', 'Ngày thứ tư', 'Ngày thứ năm', 'Ngày thứ sáu', 'Ngày thứ bảy', 'Ngày thứ tám', 'Ngày thứ chín'];
+    this.setState({ name, dateCollection });
+    this.getContent(name);
+  }
+
+  getContent = (name) => {
+    const chantList = chants.filter(item => item.name === name);
+    const content = chantList.length > 0 ? chantList[0].content : 'Hệ thống vẫn còn đang cập nhật nội dung...';
+    this.setState({ content });
+  }
+
+  handleOpenBox = (item) => {
+    const { selectedDate } = this.state;
+    item === selectedDate ? this.setState({ selectedDate: '' }) : this.setState({selectedDate: item})
+    return true;
+  }
+
+  // Lấy nội dung của ngày cụ thể trong 9 ngày kính lòng Chúa thương xót
+  getSpecificContent = (selectedDate) => {
+    const { dateCollection, content } = this.state;
+    const index = dateCollection.indexOf(selectedDate);
+    return content[index].detail;
+  }
+
+  renderContent = (content) => {
     return (
-      <View style={styles.parent}>
-        {/*header*/}
+        <ScrollView bounces={false}
+                    nestedScrollEnabled={true}>
+          <Text style={styles.textContent}>{content}</Text>
+        </ScrollView>
+    )
+  }
+
+  // renderBoxes = (item) => {
+  //   const { selectedDate } = this.state;
+  //   return (
+  //       <TouchableOpacity
+  //           onPress={this.handleOpenBox(item)}
+  //           style={[styles.contentContainer, selectedDate !== item && {
+  //             alignItems: 'center',
+  //             justifyContent: 'center'
+  //           }]}
+  //       >
+  //         {selectedDate === item ? this.renderContent(this.getSpecificContent(selectedDate)) : (
+  //             <Text>{item}</Text>
+  //         )}
+  //       </TouchableOpacity>
+  //   )
+  // }
+
+  render() {
+    const { name, content, dateCollection, selectedDate } = this.state;
+    const isLargeItem = name === 'Tuần Cửu Nhật kính lòng thương xót';
+    return (
+      <SafeAreaView style={styles.parent}>
         <View style={styles.header}>
           <View style={styles.headerBackIcon}>
             <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-              <MaterialIcon name={'arrow-left'} size={20} color={Colors.white}/>
+              <MaterialIcon name={'arrow-left'} size={30} color={Colors.white}/>
             </TouchableOpacity>
           </View>
           <Text style={styles.headerText}>
-            E-Pray
+            {name}
           </Text>
         </View>
 
         {/*content*/}
         <View style={styles.body}>
-          <ScrollView bounces={false}
-                      nestedScrollEnabled={true}>
-
-            
-          </ScrollView>
+          <FastImage
+              // source={Images.holyCross}
+              source={Images.holyCross}
+              style={styles.image}
+              resizeMode={FastImage.resizeMode.cover}
+          />
+          <View style={styles.bodyContent}>
+            {isLargeItem ? (
+                <FlatList
+                    data={dateCollection || []}
+                    keyExtractor={(item, index) => item}
+                    renderItem={({item}) => {
+                      return (
+                          <TouchableOpacity
+                              onPress={() => this.handleOpenBox(item)}
+                              style={[styles.contentContainer, selectedDate !== item && {
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                marginVertical: 5,
+                                height: 50
+                              }]}
+                          >
+                            {selectedDate === item ? this.renderContent(this.getSpecificContent(selectedDate)) : (
+                                <Text>{item}</Text>
+                            )}
+                          </TouchableOpacity>
+                      )
+                    }}
+                />
+            ) : (
+                <View style={[styles.contentContainer, {
+                  marginVertical: 20,
+                }]}>
+                  {this.renderContent(content)}
+                </View>
+            )}
+          </View>
         </View>
-      </View>
+      </SafeAreaView>
     )
   }
 }
 
 const styles = StyleSheet.create({
   parent: {
-    display: 'flex',
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
   },
   headerBackIcon: {
-    width: 20,
-    position: 'absolute',
-    left: 0
+    width: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   header: {
     height: 50,
     width: width,
     flexDirection: 'row',
-    justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute',
-    top: 50,
+    // position: 'absolute',
+    // top: 50,
     backgroundColor: Colors.darkcyan
   },
   headerText: {
     color: Colors.white,
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: '900',
-    textAlign: 'center'
+    textAlign: 'center',
+    flex: 1
   },
   body: {
+    width,
+    height,
     overflow: 'hidden',
-    marginTop: 100,
-    padding: 10
+    flexDirection: 'row',
+    backgroundColor: Colors.dark
+  },
+  bodyContent: {
+    flex: 1,
+    height: height * 0.8,
+    marginTop: 10,
+    marginHorizontal: 10
+  },
+  image: {
+    position: 'absolute',
+    top: 0,
+    bottom: 10,
+    left: 0,
+    right: 0,
+    height: 0.9 * height,
+    width
+  },
+  contentContainer: {
+    padding: 5,
+    borderRadius: 10,
+    opacity: 0.7,
+    backgroundColor: Colors.white,
+  },
+  textContent: {
+    color: Colors.black,
+    fontSize: 20,
+    zIndex: 199
   }
 });
 
