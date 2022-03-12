@@ -109,24 +109,17 @@ export default class Home extends React.PureComponent{
     const { initialCommonPrayer } = this.state;
     return (
       <View style={styles.parent}>
-        {/*header*/}
         <View style={styles.header}>
-          {/*<View style={{*/}
-          {/*  width: 50,*/}
-          {/*  height: 50,*/}
-          {/*  justifyContent: 'center',*/}
-          {/*  alignItems: 'center',*/}
-          {/*  position: 'absolute',*/}
-          {/*  left: 0*/}
-          {/*}}>*/}
-          {/*  <MaterialIcon name={'arrow-back-ios'} size={20} color={Colors.white}/>*/}
-          {/*</View>*/}
-          <Text style={styles.headerTitle}>
+          <Text style={{
+            fontSize: 18,
+            fontWeight: '900',
+            textAlign: 'center',
+            color: Colors.white
+          }}>
             E-Pray
           </Text>
         </View>
 
-        {/*content*/}
         <View style={styles.body}>
           <ScrollView bounces={false}
                       nestedScrollEnabled={true}>
@@ -147,12 +140,18 @@ export default class Home extends React.PureComponent{
                 initialNumToRender={4}
                 keyExractor={(item) => item.name}
                 renderItem={({item, index}) => (
-                  <View key={`${item.name}_no${index}`}
-                        style={[styles.cardItem, {
-                          marginHorizontal: index === 0 ? 0 : 5,
-                        }]}>
-                    <CardItem image={item.image} name={item.name} date={item.date} width={600} height={3/10 * height} key={item.name}/>
-                  </View>
+                    <TouchableOpacity
+                        onPress={() => {
+                          this.navigateTo('DetailScreen', { name: item.name })
+                        }}
+                    >
+                      <View key={`${item.name}_no${index}`}
+                            style={[styles.cardItem, {
+                              marginHorizontal: index === 0 ? 0 : 5,
+                            }]}>
+                        <CardItem image={item.image} name={item.name} date={item.date} width={600} height={3/10 * height} key={item.name}/>
+                      </View>
+                    </TouchableOpacity>
                 )}
               />
             </View>
@@ -173,12 +172,18 @@ export default class Home extends React.PureComponent{
                 initialNumToRender={4}
                 keyExractor={(item, index) => item.name}
                 renderItem={({item, index}) => (
-                    <View key={`${item.name}_no${index}`}
-                          style={[styles.cardItem, {
-                            marginHorizontal: index === 0 ? 0 : 5,
-                          }]}>
-                    <CardItem image={item.image} name={item.name} width={600} height={3/10 * height} key={item.name}/>
-                  </View>
+                    <TouchableOpacity
+                        onPress={() => {
+                          this.navigateTo('DetailScreen', { name: item.name })
+                        }}
+                    >
+                      <View key={`${item.name}_no${index}`}
+                            style={[styles.cardItem, {
+                              marginHorizontal: index === 0 ? 0 : 5,
+                            }]}>
+                        <CardItem image={item.image} name={item.name} width={600} height={3/10 * height} key={item.name}/>
+                      </View>
+                    </TouchableOpacity>
                 )}
               />
             </View>
@@ -257,7 +262,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.darkcyan
   },
   headertitle: {
-    color: Colors.white,
     fontSize: 18,
     fontWeight: '900',
     textAlign: 'center'
