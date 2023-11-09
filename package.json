@@ -3,12 +3,13 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
+        "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
         "android": "react-native run-android",
         "ios": "react-native run-ios",
         "start": "react-native start",
         "test": "jest",
         "lint": "eslint .",
-        "assemble": "npm install && react-native link",
+        "assemble": "npm install --legacy-peer-deps",
         "pod": "cd ios && pod install && cd ..",
         "assembled-libraries": "npm run assemble && npm run pod"
     },
