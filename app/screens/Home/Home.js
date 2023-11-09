@@ -121,9 +121,10 @@ export default class Home extends React.PureComponent{
         </View>
 
         <View style={styles.body}>
-          <ScrollView bounces={false}
-                      nestedScrollEnabled={true}>
-
+          <ScrollView
+              bounces={false}
+              nestedScrollEnabled={true}
+          >
             <View style={styles.sectionView}>
               <Text style={styles.sectionTitle}>
                 Chuỗi mân côi
@@ -211,8 +212,8 @@ export default class Home extends React.PureComponent{
                       }}
                   >
                     <View style={[styles.cardShadow, {
-                      marginVertical: index === 0 ? 0 : 5,
-                      width: 0.9 * width,
+                      marginVertical: 5,
+                      flex: 1,
                       height: 60,
                       flexDirection: 'row',
                       backgroundColor: Colors.white,
@@ -269,7 +270,7 @@ const styles = StyleSheet.create({
   body: {
     overflow: 'hidden',
     marginTop: 100,
-    padding: 10
+    padding: 10,
   },
   cardShadow: {
     borderRadius: 20,
