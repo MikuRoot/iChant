@@ -25,7 +25,7 @@ export default class Detail extends React.Component{
       name: '',
       content: '',
       dateCollection: [],
-      selectedDate: ''
+      selectedCase: ''
     }
   }
 
@@ -47,15 +47,23 @@ export default class Detail extends React.Component{
   }
 
   handleOpenBox = (item) => {
-    const { selectedDate } = this.state;
-    item === selectedDate ? this.setState({ selectedDate: '' }) : this.setState({selectedDate: item})
+    const { selectedCase } = this.state;
+    item === selectedCase ? this.setState({ selectedCase: '' }) : this.setState({selectedCase: item})
     return true;
   }
 
   // Lấy nội dung của ngày cụ thể trong 9 ngày kính lòng Chúa thương xót
-  getSpecificContent = (selectedDate) => {
+   getSpecificContent_9DaysOfDivineMercyDevotion = (selectedCase) => {
     const { dateCollection, content } = this.state;
-    const index = dateCollection.indexOf(selectedDate);
+    const index = dateCollection.indexOf(selectedCase);
+    return content[index].detail;
+  }
+
+  // Lấy nội dung của ngày cụ thể trong 9 ngày kính lòng Chúa thương xót
+  getSpecificContent_DivineMercyChaplet = (selectedCase) => {
+    const { content } = this.state;
+    const caseCollection = ['Trường hợp đọc vào lúc 3 giờ chiều', 'Trường hợp đọc vào những ngày khác']
+    const index = caseCollection.indexOf(selectedCase);
     return content[index].detail;
   }
 
@@ -69,16 +77,16 @@ export default class Detail extends React.Component{
   }
 
   // renderBoxes = (item) => {
-  //   const { selectedDate } = this.state;
+  //   const { selectedCase } = this.state;
   //   return (
   //       <TouchableOpacity
   //           onPress={this.handleOpenBox(item)}
-  //           style={[styles.contentContainer, selectedDate !== item && {
+  //           style={[styles.contentContainer, selectedCase !== item && {
   //             alignItems: 'center',
   //             justifyContent: 'center'
   //           }]}
   //       >
-  //         {selectedDate === item ? this.renderContent(this.getSpecificContent(selectedDate)) : (
+  //         {selectedCase === item ? this.renderContent(this.getSpecificContent(selectedCase)) : (
   //             <Text>{item}</Text>
   //         )}
   //       </TouchableOpacity>
@@ -86,8 +94,8 @@ export default class Detail extends React.Component{
   // }
 
   render() {
-    const { name, content, dateCollection, selectedDate } = this.state;
-    const isLargeItem = name === 'Tuần Cửu Nhật kính lòng thương xót';
+    const { name, content, dateCollection, selectedCase } = this.state;
+    const isLargeItem = name === 'Tuần Cửu Nhật kính lòng thương xót' || name === 'Lần hạt lòng thương xót Chúa'
     return (
       <SafeAreaView style={styles.parent}>
         <View style={styles.header}>
@@ -111,27 +119,54 @@ export default class Detail extends React.Component{
           />
           <View style={styles.bodyContent}>
             {isLargeItem ? (
-                <FlatList
+              <>
+                {name === 'Tuần Cửu Nhật kính lòng thương xót' && (
+                  <FlatList
                     data={dateCollection || []}
-                    keyExtractor={(item, index) => item}
+                    keyExtractor={(item, index) => `item_${index}`}
                     renderItem={({item}) => {
                       return (
-                          <TouchableOpacity
-                              onPress={() => this.handleOpenBox(item)}
-                              style={[styles.contentContainer, selectedDate !== item && {
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                marginVertical: 5,
-                                height: 50
-                              }]}
-                          >
-                            {selectedDate === item ? this.renderContent(this.getSpecificContent(selectedDate)) : (
-                                <Text>{item}</Text>
-                            )}
-                          </TouchableOpacity>
+                        <TouchableOpacity
+                          onPress={() => this.handleOpenBox(item)}
+                          style={[styles.contentContainer, selectedCase !== item && {
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginVertical: 5,
+                            height: 50
+                          }]}
+                        >
+                          {selectedCase === item ? this.renderContent(this.getSpecificContent_9DaysOfDivineMercyDevotion(selectedCase)) : (
+                            <Text>{item}</Text>
+                          )}
+                        </TouchableOpacity>
                       )
                     }}
-                />
+                  />
+                )}
+                {name === 'Lần hạt lòng thương xót Chúa' && (
+                  <FlatList
+                    data={['Trường hợp đọc vào lúc 3 giờ chiều', 'Trường hợp đọc vào những ngày khác']}
+                    keyExtractor={(item, index) => `item_${index}`}
+                    renderItem={({item}) => {
+                      return (
+                        <TouchableOpacity
+                          onPress={() => this.handleOpenBox(item)}
+                          style={[styles.contentContainer, selectedCase !== item && {
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginVertical: 5,
+                            height: 50
+                          }]}
+                        >
+                          {selectedCase === item ? this.renderContent(this.getSpecificContent_DivineMercyChaplet(selectedCase)) : (
+                            <Text>{item}</Text>
+                          )}
+                        </TouchableOpacity>
+                      )
+                    }}
+                  />
+                )}
+              </>
             ) : (
                 <View style={[styles.contentContainer, {
                   marginVertical: 20,
