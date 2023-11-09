@@ -5631,6 +5631,67 @@ export const chants = [
   },
   {
     name: 'Lần hạt lòng thương xót Chúa',
-    content: ''
+    content: [
+      {
+        detail: `1. Làm dấu
+        
+Nhân danh Chúa Cha, Chúa Con và Chúa Thánh Thần Amen.
+
+2. Lời nguyện
+
+Lạy Chúa Thánh Thần, xin đến với chúng con trong giờ cầu nguyện này. Xin Chúa đốt lên trong con ngọn lửa yêu mến Chúa. Xin Mẹ Maria, Mẹ đã cầu nguyện với các tông đồ trong nhà Tiệc Ly để Chúa xuống trên Mẹ và các tông đồ thì cũng xuống trên chúng con ngày hôm nay. Chúng con tràn đầy ngọn lửa yêu mến, chúng con tin tưởng cậy trông và phó thác nơi lòng thương xót của Chúa.
+
+3. Hát cầu xin Chúa Thánh Thần
+
+Cầu xin Chúa Thánh Thần, người thương thăm viếng hồn con. Ban xuống cho con hồng ân chan chứa, trau dồi cho đáng ngôi Thánh Đường. Nguyện xin Chúa Ba Ngôi, đoái nghe lời con thiết tha. Tình thương mến ấp ủ con ngày đêm. Nhuần thấm xác hồn tràn lan ơn thiêng.
+
+4. Đọc kinh
+
+.1 kinh lạy Cha
+.1 kinh kính mừng
+.1 kinh tin kính
+
+5. Hát bài Ngợi ca lòng thương xót
+
+Ngợi ca lòng thương xót Chúa đã ban tặng con, hỡi trái tim từ nhân, con tín thác nơi Ngài. Chiều đồi núi Canve năm nào Ngài chết treo thân thập tự, Ngài đã hiến dâng máu đào để cứu chuộc con. Và... dòng suối yêu thương chan hòa từ trái tim Cha tuôn tràn tẩy xóa bao lỗi tội, tái sinh đời con.
+
+6. Lần hạt
+
+Mỗi hạt lớn đọc: Lạy Cha Hằng Hữu, con xin dâng lên Cha mình và máu, linh hồn và thiên tính của con rất yêu dấu Cha là Đức Giêsu Kitô Chúa chúng con. Để đền tạ vì tội lỗi chúng con và toàn thế giới.
+Mỗi hạt nhỏ đọc: Vì cuộc khổ nạn đau thương của Chúa Giêsu Kitô. Xin Cha thương xót chúng con và toàn thế giới.
+Lưu ý: Sau mỗi chục kinh, để cảm tạ lòng thương xót của Cha, bạn nên hát 1 lần điệp khúc của bài hát Ngợi ca lòng thương xót.
+
+7. Kết thúc
+
+Để kết thúc lần hạt, bạn đọc 3 lần: "Lạy đấng Chí Thánh là Thiên Chúa toàn năng Hằng Hữu. Xin thương xót chúng con và toàn thế giới".
+Sau đó đọc 3 lần: "Kính lạy máu và nước đã tuôn trào từ thánh tâm Chúa Giêsu như thác nguồn thương xót chúng con, con tín thác vào Chúa".`
+      },
+      {
+        detail: `1. Làm dấu
+        
+Nhân danh Chúa Cha, Chúa Con và Chúa Thánh Thần Amen.
+
+2. 3 Hạt Nhỏ, đọc:
+
+.1 Kinh Lạy Cha
+.1 Kinh Kính Mừng
+.1 Kinh Tin Kính
+
+3. Hạt Lớn, thay vì Kinh Lạy Cha trong chuỗi Mân Côi, đọc:
+
+Lạy Cha Hằng Hữu, con xin dâng Cha Mình, Máu, Linh hồn, và Thiên tính của Con yêu dấu Cha là Đức Giêsu Kitô, Chúa chúng con, để đền tạ tội lỗi chúng con và tội lỗi toàn thế giới.
+
+4. 10 Hạt Nhỏ, thay vì 10 Kinh Kính Mừng, đọc 10 lần:
+
+Vì cuộc tử nạn đau buồn của Chúa Giêsu,
+xin thương xót chúng con và toàn thế giới.
+
+5. Lặp lại “hạt lớn” và “10 hạt nhỏ” đến hết chuỗi Mân Côi. Sau đó, để kết thúc chuỗi hạt, đọc 3 lần:
+
+Lạy Cha Chí Thánh, Đấng Toàn Năng, Đấng Hằng Hữu, xin thương xót chúng con và toàn thế giới.
+
+6. Hôn Thánh Giá Chúa với tâm hồn kính mến. (hết)`
+      },
+    ]
   },
 ];
