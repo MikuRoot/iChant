@@ -5627,7 +5627,52 @@ export const chants = [
   },
   {
     name: 'Chuỗi kinh đọc đám giỗ',
-    content: ''
+    content: `Hát Cầu xin Chúa Thánh Thần
+    
+Cầu xin Chúa Thánh Thần.
+Người thương thăm viếng hồn con.
+Đem xuống cho con hồng ân chan chứa.
+Trau dồi cho đáng ngôi thánh đường.
+ĐK: Nguyện xin Chúa Ngôi Ba.
+Đoái nghe lời con thiết tha.
+Tình thương mến ấp ủ con ngày đêm.
+Nhuần thấm xác hồn tràn lan ơn thiêng.
+
+Kinh Tin:
+Lạy Chúa, con tin thật có một Đức Chúa Trời là Đấng thưởng phạt vô cùng.  Con lại tin thật Đức Chúa Trời có Ba Ngôi, mà Ngôi Thứ Hai đã xuống thế làm Người, chịu nạn chịu chết mà chuộc tội cho thiên hạ.  Bấy nhiêu điều ấy cùng các điều Hội Thánh dạy thì con tin vững vàng, vì Chúa là Đấng thông minh và chân thật vô cùng đã phán truyền cho Hội Thánh.  Amen
+
+Kinh Cậy:
+Lạy Chúa , con trông cậy vững vàng, vì công nghiệp Đức Chúa Giêsu thì Chúa sẽ ban ơn cho con giữ đạo nên ở đời này, cho ngày sau được lên thiên đàng xem thấy mặt Đức Chúa Trời hưởng phúc đời đời, vì Chúa là đấng phép tắc và lòng lành vô cùng đã phán hứa sự ấy chẳng có lẽ nào sai được.  Amen.
+
+Kinh Mến:
+Lạy Chúa , con kính mến Chúa hết lòng hết sức trên hết mọi sự, vì Chúa là Đấng trọn tốt trọn lành vô cùng, lại vì Chúa, thì con thương yêu người ta như mình con vậy.  Amen.
+
+Đọc lời Chúa: ...
+
+Ngắm mầu nhiệm 5 sự thương
+
+Kinh Lạy Nữ Vương: 
+Lạy Nữ Vương gia đình Mẹ ở đây với chúng con, vui buồn sướng khổ mẹ con cùng nhau chia sẻ. Xa mẹ chúng con biết cậy trong ai. Đời chúng con gian nan khổ sở lắm. Gia đình chúng con long đong tối ngày nhưng có mẹ ở bên chúng con, chúng con thấy quên hết ưu phiền, vui sống qua kiếp lưu đày. Mong ngày sau sung sướng cùng mẹ muôn đời trên Thiên Đàng. A-men.
+
+Kinh Vực Sâu:
+Lạy Chúa, con ở dưới vực sâu kêu lên Chúa, xin Chúa hãy thẩm nhậm lời con kêu van. Hãy lắng nghe tiếng con cầu xin. Nếu Chúa chấp tội nào ai rỗi được? Bởi Chúa hằng có lòng lành, cùng vì lời Chúa phán hứa. Con đã trông cậy Chúa. Linh hồn con cậy vì lời hứa ấy, thì đã trông cậy Chúa. Những kẻ làm dân Người đêm ngày hãy trông cậy Người cho liên, vì Người rất nhân lành hay thương vô cùng, sẽ tha hết mọi tội lỗi kẻ làm dân Người thay thảy. Lạy Chúa, xin ban cho các linh hồn (tên thánh) được nghỉ ngơi đời đời, và được sáng soi vô cùng. Lạy Chúa, xin cứu lấy các linh hồn cho khỏi tù ngục, mà được nghỉ yên. Amen!
+Lạy ơn Đức Chúa Giêsu, Chúa con đã phán dạy rằng bay hãy xin thì bay sẽ được vậy con xin chúa con lòng lành vô cùng, thương đến các linh hồn nởi lửa luyện tôi, xin Chúa con nghe lời con cầu xin kêu van cho linh hồn ông bà, cha mẹ, anh em bạn hữu con, xin Chúa con mở cửa thiên đàng cho các linh hồn ấy vào, xin cho các linh hồn ấy được sự sáng vô cùng hằng soi cho liên. Amen!
+
+Kinh Phó dâng:
+Lạy Chúa, con xin phó́ dâng linh hồn và xác con ở tay Chúa con. Chúa đã phù hộ con ban ngày, thì xin Chúa cũng gìn giữ con ban đêm, kẻo sa phạm tội gì mất lòng Chúa hay là chết tươi ăn năn tội chẳng kịp. Chớ gì sống chết con được giữ một lòng kính mến Chúa luôn. Amen
+
+Kinh Cám ơn:
+Con cám ơn Đức Chúa trời là Chúa lòng lành vô cùng, chẳng bỏ con, chẳng để con không đời đời mà laị sinh ra con, cho con được làm người, cùng hằng gìn giữ con hằng che chở con, lại cho ngôi hai xuống thế làm người,chuộc tội chịu chết trên cây thánh giá vì con, lại cho con được đạo thánh Đức Chúa Trời cũng chịu nhiều ơn nhiều phép hội thánh nữa, và đã cho phần xác con (ngày/đêm) hôm nay được mọi sự lành, lại cứu lấy con kẻo phải chết tươi ăn năn tội chẳng kịp.Vậy các thánh ở trên nước thiên đàng cám ơn Đức Chúa Trời thế nào thì con cũng hợp cùng các thánh mà dâng chúa con, cùng cám ơn như vậy. Amen
+
+Hát một bài về các linh hồn:
+Gợi ý: Sự Sống Thay Đổi Chứ Không Mất Đi
+1. Sự sống chỉ thay đổi mà không mất đi. Lúc con người nằm yên giấc ngủ mắt nhắm lại rồi là thấy tương lai. Trọn kiếp người nay không còn nước mắt nụ cười. Nhưng con tin rằng ngày mai trong Chúa chẳng có nỗi buồn đẹp mãi niềm vui.
+2. Cuộc sống này kìa hoa nở và hoa úa phai. Nắng lên đồi thì đêm tắt thở, mây tím giăng trời thì nắng tan đi. Cuộc sống này bao nhiêu lần đưa tiễn ngậm ngùi. Nhưng con tin rằng ngày mai trong Chúa, chẳng có chia lìa chẳng có hợp tan.
+3. Cuộc sống này ngày chưa trọn mà đêm đã lên. Lá thay mùa thời gian biến đổi, như vó câu dồn tựa thoáng mây bay. Một kiếp người chưa bao ngày đã đến cội nguồn. Nhưng con tin rằng ngày mai trong Chúa hạnh phúc muôn đời chẳng có thời gian.
+4. Sự sống này vào nấm mộ mà không mất đi. Chúa thương từng bụi cây lá cỏ, đâu muốn con người phải nát tan đi. Trọn kiếp này ai theo đường sự sống trọn tình. Mai sau sẽ được phục sinh trong Chúa, được sống muôn đời cuộc sống hiển vinh.
+5. Cuộc sống này nhiều thay đổi cùng bao gió sương. Chỉ một điều hằng không biến đổi, là trái tim vàng của Chúa yêu thương. Ngày giã từ xuôi tay nằm trong cát bụi tàn. Xôn xao bên trời lời ru êm ái, Thiên Chúa nhân từ chào đón người con.
+ ĐK.  Sự sống không mất nhưng chỉ đổi thay. Đã qua bao ngày trọn một kiếp này. Dù sống hay chết tin vào ngày mai. Sự sống không mất nhưng chỉ đổi thay.
+`
   },
   {
     name: 'Lần hạt lòng thương xót Chúa',
